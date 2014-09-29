@@ -1,0 +1,20 @@
+Ce dossier contient les fichiers correspondant à l'implémentation d'une file à
+l'aide d'un tableau. Les éléments sont enregistrés dans un tableau utilisé
+comme un buffer circulaire.
+
+Les fichiers présents dans l'archive sont les suivants :
+ - file_tab.ads      : définition du package File_Tab
+ - file_tab.adb      : implémentation du package File_Tab
+ - file_tab_test.adb : fonction de test du package File_Tab (affichage
+   légèrement modifié par rapport à celui fournis)
+ - Makefile
+ - README
+
+Les cibles du makefile sont :
+ - all (défaut) : compile et lance l'exécutable généré
+ - run          : lance l'exécutable de test
+ - install      : compile les différents fichiers ada
+ - clean        : efface les fichiers générés
+
+Ainsi pour lancer l'exécutable de test afin de tester l'implémentation de la
+file, il suffit de faire `make` dans le dossier contenant le projet.
