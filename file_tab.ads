@@ -56,19 +56,23 @@ private
     Taille_Max  : constant Natural := 5;
 
     -- Index des éléments dans le tableau
-    type Iterator is range 0..Taille_Max - 1;
+    type Iterator   is range 0..Taille_Max - 1;
+    type File_array is array (Iterator) of Integer;
 
-    -- Les éléments sont stoqués sous forme dans un tableau circulaire
-    type File is array (Iterator) of Integer;
+    type File is record
+        -- Les éléments sont stoqués sous forme dans un tableau circulaire
+        elements     : File_array := (others => 0);
 
-    -- Contient les valeurs de la file
-    elements     : File     := (others => 0);
-    -- Index du premier élément dans le tableau
-    index_first  : Iterator := Iterator'First;
-    -- Nombre d'éléments actuellement dans la File
-    current_size : Natural  := 0;
+        -- Contient les valeurs de la file
+        -- Index du premier élément dans le tableau
+        index_first  : Iterator := Iterator'First;
+
+        -- Nombre d'éléments actuellement dans la File
+        current_size : Natural  := 0;
+    end record;
+
 
     -- Donne l'index de l'élément i dans la file
     -- Complexitée : O(1)
-    function To_iterator(i: Natural) return Iterator;
+    function To_iterator(F: File; i: Natural) return Iterator;
 end;
